@@ -1,0 +1,15 @@
+.postListsHeader {
+  @apply
+    flex items-center justify-between
+    p-4 py-8;
+
+  @screen md {
+    @apply px-8;
+  }
+
+  @screen xl {
+    & > button {
+      @apply hidden;
+    }
+  }
+}

@@ -1,7 +1,10 @@
+import Layout from '#layout';
+import { Typography } from '#ui-kit';
+
 export default function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <Layout title="Home">
+      <Typography variant="h1">Home</Typography>
+    </Layout>
   );
 }

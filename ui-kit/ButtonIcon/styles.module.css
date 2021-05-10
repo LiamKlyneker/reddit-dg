@@ -1,0 +1,19 @@
+.buttonIcon {
+  @apply
+    bg-transparent h-8 w-8 outline-none
+    flex items-center justify-center text-gray-400;
+  font-size: 32px;
+
+  &:focus {
+    @apply outline-none;
+  }
+
+  &:active {
+    @apply text-black;
+    transform: scale(0.9);
+  }
+}
+
+.buttonIcon.white {
+  @apply text-white;
+}

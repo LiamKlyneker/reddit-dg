@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "#layout": ["layout/index"],
+      "#components": ["components/index"],
+      "#ui-kit": ["ui-kit/index"],
+    }
+  }
+}

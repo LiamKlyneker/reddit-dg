@@ -1,0 +1,45 @@
+.layoutWrapper {
+  @screen xl {
+    @apply flex;
+  }
+}
+
+.sideNavigation {
+  @apply
+    hidden fixed h-screen z-10 left-0 top-0
+    bg-gray-100 shadow-md max-w-sm;
+  width: calc(100vw - 4rem);
+
+  @screen xl {
+    @apply relative;
+    display: block !important;
+  }
+}
+
+.sideNavigation.active {
+  @apply block;
+}
+
+.header {
+  @apply px-4 py-8;
+
+  @screen md {
+    @apply px-8;
+  }
+
+  @screen xl {
+    @apply hidden;
+  }
+}
+
+.mainBody {
+  @apply px-6;
+
+  @screen md {
+    @apply px-10;
+  }
+
+  @screen xl {
+    @apply py-10;
+  }
+}
