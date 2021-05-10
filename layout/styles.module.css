@@ -2,6 +2,10 @@
   @screen xl {
     @apply flex;
   }
+
+  & > div {
+    @apply flex-1;
+  }
 }
 
 .sideNavigation {

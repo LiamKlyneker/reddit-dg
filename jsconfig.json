@@ -5,6 +5,7 @@
       "#layout": ["layout/index"],
       "#components": ["components/index"],
       "#ui-kit": ["ui-kit/index"],
+      "#modules/*": ["modules/*"],
     }
   }
 }
