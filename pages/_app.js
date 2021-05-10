@@ -1,7 +1,12 @@
-import '../styles/globals.css'
+import { func, shape } from 'prop-types';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+MyApp.propTypes = {
+  Component: func,
+  pageProps: shape(),
+};
+
+export default MyApp;
