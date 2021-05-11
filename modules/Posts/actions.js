@@ -1,4 +1,9 @@
-import { FETCH_POSTS, DISMISS_POST, FETCH_POST_DETAILS } from './constants';
+import {
+  FETCH_POSTS,
+  DISMISS_POST,
+  FETCH_POST_DETAILS,
+  DISMISS_ALL_POSTS,
+} from './constants';
 
 export const fetchPosts = ({ limit, after }) => ({
   type: FETCH_POSTS,
@@ -26,3 +31,5 @@ export const fetchPostDetails = id => ({
     },
   },
 });
+
+export const dismissAllPosts = () => ({ type: DISMISS_ALL_POSTS });

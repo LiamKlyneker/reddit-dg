@@ -1,4 +1,9 @@
-import { FETCH_POSTS, DISMISS_POST, FETCH_POST_DETAILS } from './constants';
+import {
+  FETCH_POSTS,
+  DISMISS_POST,
+  FETCH_POST_DETAILS,
+  DISMISS_ALL_POSTS,
+} from './constants';
 import { success, failure } from '../utils';
 
 const initialState = {
@@ -60,6 +65,13 @@ export default function reducer(state = initialState, action) {
         isFetchingPostDetails: false,
         error: 'Error on fetch...',
       };
+
+    case DISMISS_ALL_POSTS:
+      return {
+        ...state,
+        items: [],
+      };
+
     default:
       return state;
   }

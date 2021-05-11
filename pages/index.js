@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <Layout title={!postDetailsData ? 'Home' : postDetailsData.title}>
       {!postDetailsData && !isFetchingPostDetails && (
-        <Typography variant="h1">Welcome!</Typography>
+        <Typography variant="h1">Select a Post</Typography>
       )}
       {isFetchingPostDetails && 'Loading...'}
       {postDetailsData && (

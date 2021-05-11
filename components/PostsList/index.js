@@ -7,7 +7,12 @@ import { PostItem } from '#components';
 import styles from './styles.module.css';
 
 import { getPostsData } from '#modules/Posts/selector';
-import { fetchPosts, dismissPost, fetchPostDetails } from '#modules/Posts/actions';
+import {
+  fetchPosts,
+  dismissPost,
+  fetchPostDetails,
+  dismissAllPosts,
+} from '#modules/Posts/actions';
 
 export default function PostsList({ onClose }) {
   const { isFetching, items, meta, postDetailsData } = useSelector(getPostsData());
@@ -58,7 +63,7 @@ export default function PostsList({ onClose }) {
         )}
       </section>
       <footer className={styles.postListsFooter}>
-        <Button onClick={() => {}}>Dismiss All</Button>
+        <Button onClick={() => dispatch(dismissAllPosts())}>Dismiss All</Button>
       </footer>
     </div>
   );
