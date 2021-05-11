@@ -1,4 +1,4 @@
-import { FETCH_POSTS } from './constants';
+import { FETCH_POSTS, DISMISS_POST } from './constants';
 
 export const fetchPosts = ({ limit, after }) => ({
   type: FETCH_POSTS,
@@ -11,4 +11,9 @@ export const fetchPosts = ({ limit, after }) => ({
       },
     },
   },
+});
+
+export const dismissPost = id => ({
+  type: DISMISS_POST,
+  payload: { id },
 });

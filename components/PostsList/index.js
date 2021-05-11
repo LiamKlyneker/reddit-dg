@@ -7,11 +7,16 @@ import { PostItem } from '#components';
 import styles from './styles.module.css';
 
 import { getPostsData } from '#modules/Posts/selector';
-import { fetchPosts } from '#modules/Posts/actions';
+import { fetchPosts, dismissPost } from '#modules/Posts/actions';
 
 export default function PostsList({ onClose }) {
   const { isFetching, items, meta } = useSelector(getPostsData());
   const dispatch = useDispatch();
+
+  const handleDismissPost = (ev, postId) => {
+    ev.preventDefault();
+    dispatch(dismissPost(postId));
+  };
 
   useEffect(() => {
     dispatch(fetchPosts({ limit: 20 }));
@@ -33,7 +38,7 @@ export default function PostsList({ onClose }) {
               created={item.data.created_utc}
               title={item.data.title}
               numComments={item.data.num_comments}
-              onDismissPost={ev => ev.preventDefault()}
+              onDismissPost={ev => handleDismissPost(ev, item.data.id)}
             />
           ))}
         {isFetching && 'Loading...'}
@@ -46,7 +51,7 @@ export default function PostsList({ onClose }) {
         )}
       </section>
       <footer className={styles.postListsFooter}>
-        <Button>Dismiss All</Button>
+        <Button onClick={() => {}}>Dismiss All</Button>
       </footer>
     </div>
   );
