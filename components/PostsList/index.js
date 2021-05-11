@@ -51,6 +51,7 @@ export default function PostsList({ onClose }) {
               onClickItem={() => handleOnClickItem(item.data.name)}
               onDismissPost={ev => handleOnDismissPost(ev, item.data.id)}
               active={postDetailsData && postDetailsData.id === item.data.id}
+              isNew={item.new}
             />
           ))}
         {isFetching && 'Loading...'}

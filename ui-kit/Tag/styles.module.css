@@ -1,0 +1,5 @@
+.tag {
+  @apply
+    px-2 py-1 rounded bg-red-400 text-white
+    text-xs font-bold tracking-wider;
+}

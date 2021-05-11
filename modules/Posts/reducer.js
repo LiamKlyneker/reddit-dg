@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import {
   FETCH_POSTS,
   DISMISS_POST,
@@ -54,9 +55,14 @@ export default function reducer(state = initialState, action) {
         error: null,
       };
     case success(FETCH_POST_DETAILS):
+      const dataToSet = action.payload.data.data.children.pop().data;
+      const indexToUpdate = state.items.findIndex(item => item.data.id === dataToSet.id);
+      const newItemsToSet = [...state.items];
+      newItemsToSet[indexToUpdate].new = false;
       return {
         ...state,
-        postDetailsData: action.payload.data.data.children.pop().data,
+        items: newItemsToSet,
+        postDetailsData: dataToSet,
         isFetchingPostDetails: false,
       };
     case failure(FETCH_POST_DETAILS):
@@ -77,4 +83,4 @@ export default function reducer(state = initialState, action) {
   }
 }
 
-const parsePosts = items => items.map(item => ({ ...item, seen: false }));
+const parsePosts = items => items.map(item => ({ ...item, new: true }));

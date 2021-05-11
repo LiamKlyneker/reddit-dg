@@ -2,7 +2,7 @@
   @apply
     flex items-center cursor-pointer
     bg-white border-b border-gray-200
-    text-left w-full;
+    text-left w-full relative;
 
   & > div {
     @apply flex-1 pl-4;
@@ -16,6 +16,12 @@
   &:hover {
     @apply bg-blue-100;
   }
+}
+
+.postItemTag {
+  @apply absolute;
+  left: 1rem;
+  top: 1rem;
 }
 
 .postItemHeader {

@@ -2,7 +2,7 @@ import { bool, func, number, string } from 'prop-types';
 import { differenceInHours } from 'date-fns';
 import cx from 'classnames';
 
-import { Button, Image, Typography } from '#ui-kit';
+import { Button, Image, Typography, Tag } from '#ui-kit';
 import styles from './styles.module.css';
 
 export default function PostItem({
@@ -14,12 +14,18 @@ export default function PostItem({
   onClickItem,
   onDismissPost,
   active,
+  isNew,
 }) {
   return (
     <article
       className={cx(styles.postItemWrapper, { [styles.active]: active })}
       onClick={onClickItem}
     >
+      {isNew && (
+        <span className={styles.postItemTag}>
+          <Tag>NEW</Tag>
+        </span>
+      )}
       <div>
         <Image src={thumbnail} variant="thumbnail" />
       </div>
@@ -52,6 +58,7 @@ PostItem.propTypes = {
   onClickItem: func,
   onDismissPost: func,
   active: bool,
+  isNew: bool,
 };
 
 const parseTime = time => {
