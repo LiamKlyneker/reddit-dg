@@ -15,7 +15,6 @@
   width: calc(100vw - 4rem);
 
   @screen xl {
-    @apply relative;
     display: block !important;
   }
 }
@@ -37,13 +36,13 @@
 }
 
 .mainBody {
-  @apply px-6;
+  @apply px-6 max-w-4xl;
 
   @screen md {
     @apply px-10;
   }
 
   @screen xl {
-    @apply py-10;
+    @apply ml-96 py-10;
   }
 }

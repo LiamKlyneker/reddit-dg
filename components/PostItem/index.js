@@ -1,5 +1,6 @@
-import { func, number, string } from 'prop-types';
+import { bool, func, number, string } from 'prop-types';
 import { differenceInHours } from 'date-fns';
+import cx from 'classnames';
 
 import { Button, Image, Typography } from '#ui-kit';
 import styles from './styles.module.css';
@@ -9,11 +10,16 @@ export default function PostItem({
   author,
   title,
   numComments,
-  onDismissPost,
   created,
+  onClickItem,
+  onDismissPost,
+  active,
 }) {
   return (
-    <article className={styles.postItemWrapper}>
+    <article
+      className={cx(styles.postItemWrapper, { [styles.active]: active })}
+      onClick={onClickItem}
+    >
       <div>
         <Image src={thumbnail} variant="thumbnail" />
       </div>
@@ -42,8 +48,10 @@ PostItem.propTypes = {
   thumbnail: string,
   author: string,
   numComments: number,
-  onDismissPost: func,
   created: number,
+  onClickItem: func,
+  onDismissPost: func,
+  active: bool,
 };
 
 const parseTime = time => {

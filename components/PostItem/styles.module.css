@@ -5,8 +5,8 @@
     text-left w-full;
 
   & > div {
-    @apply flex-1;
-    max-width: 80px;
+    @apply flex-1 pl-4;
+    max-width: 96px;
   }
 
   & > section {
@@ -28,4 +28,8 @@
   p {
     @apply mb-0;
   }
+}
+
+.postItemWrapper.active {
+  @apply bg-blue-200;
 }

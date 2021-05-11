@@ -1,4 +1,4 @@
-import { FETCH_POSTS, DISMISS_POST } from './constants';
+import { FETCH_POSTS, DISMISS_POST, FETCH_POST_DETAILS } from './constants';
 import { success, failure } from '../utils';
 
 const initialState = {
@@ -6,6 +6,9 @@ const initialState = {
   items: [],
   meta: {},
   error: null,
+
+  isFetchingPostDetails: false,
+  postDetailsData: null,
 };
 
 export default function reducer(state = initialState, action) {
@@ -36,6 +39,26 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         items: [...state.items].filter(item => item.data.id !== action.payload.id),
+      };
+
+    case FETCH_POST_DETAILS:
+      return {
+        ...state,
+        isFetchingPostDetails: true,
+        postDetailsData: null,
+        error: null,
+      };
+    case success(FETCH_POST_DETAILS):
+      return {
+        ...state,
+        postDetailsData: action.payload.data.data.children.pop().data,
+        isFetchingPostDetails: false,
+      };
+    case failure(FETCH_POST_DETAILS):
+      return {
+        ...state,
+        isFetchingPostDetails: false,
+        error: 'Error on fetch...',
       };
     default:
       return state;

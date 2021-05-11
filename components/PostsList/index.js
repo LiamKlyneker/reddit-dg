@@ -7,15 +7,20 @@ import { PostItem } from '#components';
 import styles from './styles.module.css';
 
 import { getPostsData } from '#modules/Posts/selector';
-import { fetchPosts, dismissPost } from '#modules/Posts/actions';
+import { fetchPosts, dismissPost, fetchPostDetails } from '#modules/Posts/actions';
 
 export default function PostsList({ onClose }) {
-  const { isFetching, items, meta } = useSelector(getPostsData());
+  const { isFetching, items, meta, postDetailsData } = useSelector(getPostsData());
   const dispatch = useDispatch();
 
-  const handleDismissPost = (ev, postId) => {
+  const handleOnDismissPost = (ev, postId) => {
     ev.preventDefault();
     dispatch(dismissPost(postId));
+  };
+
+  const handleOnClickItem = postId => {
+    onClose();
+    dispatch(fetchPostDetails(postId));
   };
 
   useEffect(() => {
@@ -38,7 +43,9 @@ export default function PostsList({ onClose }) {
               created={item.data.created_utc}
               title={item.data.title}
               numComments={item.data.num_comments}
-              onDismissPost={ev => handleDismissPost(ev, item.data.id)}
+              onClickItem={() => handleOnClickItem(item.data.name)}
+              onDismissPost={ev => handleOnDismissPost(ev, item.data.id)}
+              active={postDetailsData && postDetailsData.id === item.data.id}
             />
           ))}
         {isFetching && 'Loading...'}

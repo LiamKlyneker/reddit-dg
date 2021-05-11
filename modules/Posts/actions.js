@@ -1,4 +1,4 @@
-import { FETCH_POSTS, DISMISS_POST } from './constants';
+import { FETCH_POSTS, DISMISS_POST, FETCH_POST_DETAILS } from './constants';
 
 export const fetchPosts = ({ limit, after }) => ({
   type: FETCH_POSTS,
@@ -16,4 +16,13 @@ export const fetchPosts = ({ limit, after }) => ({
 export const dismissPost = id => ({
   type: DISMISS_POST,
   payload: { id },
+});
+
+export const fetchPostDetails = id => ({
+  type: FETCH_POST_DETAILS,
+  payload: {
+    request: {
+      url: `https://www.reddit.com/by_id/${id}/.json`,
+    },
+  },
 });
