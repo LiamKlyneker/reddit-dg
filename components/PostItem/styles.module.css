@@ -1,0 +1,31 @@
+.postItemWrapper {
+  @apply
+    flex items-center cursor-pointer
+    bg-white border-b border-gray-200
+    text-left w-full;
+
+  & > div {
+    @apply flex-1;
+    max-width: 80px;
+  }
+
+  & > section {
+    @apply p-4 flex-1;
+  }
+
+  &:hover {
+    @apply bg-blue-100;
+  }
+}
+
+.postItemHeader {
+  @apply flex justify-between items-center mb-2;
+}
+
+.postItemActions {
+  @apply flex justify-between items-center;
+
+  p {
+    @apply mb-0;
+  }
+}

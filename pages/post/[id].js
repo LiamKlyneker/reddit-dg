@@ -1,7 +1,10 @@
+import Layout from '#layout';
+import { Typography } from '#ui-kit';
+
 export default function PostDetail() {
   return (
-    <div>
-      <h1>PostDetail</h1>
-    </div>
+    <Layout title="Post Detail">
+      <Typography variant="h1">PostDetail</Typography>
+    </Layout>
   );
 }

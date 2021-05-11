@@ -14,3 +14,20 @@
 .h2 {
   @apply text-2xl;
 }
+
+.p {
+  @apply font-lato text-base mb-4;
+}
+
+.small {
+  @apply font-lato font-bold text-sm mb-1;
+}
+
+.extra-small {
+  @apply font-lato text-xs;
+}
+
+/* Colors */
+.grey {
+  @apply text-gray-500;
+}

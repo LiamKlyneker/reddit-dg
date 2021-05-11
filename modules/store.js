@@ -12,7 +12,7 @@ const storeEnhancers = composeWithDevTools({
   name: 'Reddit DG',
 })(composedMiddlewares);
 
-export default function createReduxStore(initialState) {
-  const store = createStore(reducersCombined, initialState, storeEnhancers);
+export default function createReduxStore() {
+  const store = createStore(reducersCombined, storeEnhancers);
   return store;
 }

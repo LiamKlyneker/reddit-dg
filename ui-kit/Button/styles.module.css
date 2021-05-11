@@ -1,0 +1,13 @@
+.button {
+  &:hover {
+    @apply underline;
+  }
+}
+
+.small {
+  @apply text-sm text-gray-800 underline;
+
+  &:hover {
+    @apply text-gray-500;
+  }
+}

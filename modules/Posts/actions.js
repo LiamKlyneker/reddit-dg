@@ -1,12 +1,13 @@
 import { FETCH_POSTS } from './constants';
 
-export const fetchPosts = () => ({
+export const fetchPosts = ({ limit, after }) => ({
   type: FETCH_POSTS,
   payload: {
     request: {
       url: 'https://www.reddit.com/r/all/top/.json',
       params: {
-        limit: 20,
+        limit,
+        after,
       },
     },
   },

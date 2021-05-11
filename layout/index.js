@@ -16,7 +16,9 @@ export default function Layout({ children, title }) {
         <title>Reddit | {title}</title>
       </Head>
       <div className={styles.layoutWrapper}>
-        <nav className={cx(styles.sideNavigation, { [styles.active]: showSideNavigation })}>
+        <nav
+          className={cx(styles.sideNavigation, { [styles.active]: showSideNavigation })}
+        >
           <PostsList onClose={() => setShowSideNavigation(false)} />
         </nav>
         <div>

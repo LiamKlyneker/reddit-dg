@@ -1,0 +1,13 @@
+.default {
+  img {
+    @apply w-full;
+  }
+}
+
+.thumbnail {
+  @apply w-20 h-20 overflow-hidden flex items-center justify-center;
+
+  i {
+    @apply text-4xl text-gray-400;
+  }
+}

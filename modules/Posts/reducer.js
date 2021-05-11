@@ -4,6 +4,7 @@ import { success, failure } from '../utils';
 const initialState = {
   isFetching: false,
   items: [],
+  meta: {},
   error: null,
 };
 
@@ -13,11 +14,15 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         isFetching: true,
+        error: null,
       };
     case success(FETCH_POSTS):
       return {
         ...state,
-        items: [],
+        items: [...state.items, ...action.payload.data.data.children],
+        meta: {
+          after: action.payload.data.data.after,
+        },
         isFetching: false,
       };
     case failure(FETCH_POSTS):
