@@ -19,7 +19,7 @@ export default function PostsList({ onClose }) {
   const dispatch = useDispatch();
 
   const handleOnDismissPost = (ev, postId) => {
-    ev.preventDefault();
+    ev.stopPropagation();
     dispatch(dismissPost(postId));
   };
 
