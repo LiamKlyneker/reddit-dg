@@ -1,4 +1,4 @@
-## Reddit Deviget
+## Reddit Prototype
 
 Project Live: [https://reddit-dg.vercel.app](https://reddit-dg.vercel.app)
 
